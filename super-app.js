@@ -8,27 +8,27 @@ export default class {
         data = { ...data, ...object }
         localStorage.setItem( 'CACHE_DEV', JSON.stringify( data ) )
     }
-    #set_JWT(token) {
+    set_JWT(token) {
         localStorage.setItem('ACCESS_TOKEN', token)
     }
-    #get_JWT() {
+    get_JWT() {
         return localStorage.getItem('ACCESS_TOKEN')
     }
-    #clear_JWT() {
+    clear_JWT() {
         localStorage.removeItem('ACCESS_TOKEN')
     }
     is_logged() {
-        return this.#get_JWT() !== null
+        return this.get_JWT() !== null
     }
     logout() {
-        this.#clear_JWT()
+        this.clear_JWT()
     }
     async get_curruent_user() {
         return this.getCache().user
     }
     async login(username, password) {
         if (username == 'digital' && password == '123') {
-            this.#set_JWT('000001.TOdG9rZW5ERVZseXNBbGVydA==')
+            this.set_JWT('000001.TOdG9rZW5ERVZseXNBbGVydA==')
             this.setCache( {
                 user: {
                     id: '00000000000000001',
